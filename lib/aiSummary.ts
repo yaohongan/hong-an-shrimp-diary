@@ -1,14 +1,17 @@
 
 import OpenAI from 'openai'
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
+let openai: OpenAI | null = null
+if (process.env.OPENAI_API_KEY) {
+  openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
+}
 
 // 生成每日AI反思总结
 export async function generateReflection(dailyMemory: any): Promise<string> {
   // 如果没有OpenAI API Key，返回默认总结
-  if (!process.env.OPENAI_API_KEY) {
+  if (!openai || !process.env.OPENAI_API_KEY) {
     const taskCount = dailyMemory.tasks?.length || 0
     const knowledgeCount = dailyMemory.knowledge?.length || 0
     const errorCount = dailyMemory.errors?.length || 0
