@@ -13,7 +13,7 @@ import { generateReflection } from '@/lib/aiSummary'
 export default async function Home() {
   const today = new Date()
   const todayStr = format(today, 'yyyy-MM-dd')
-  const todayMemory = await getTodayMemory(todayStr)
+  const todayMemory = await getTodayMemory()
   const stats = await getStats()
   const reflection = await generateReflection(todayMemory)
 
