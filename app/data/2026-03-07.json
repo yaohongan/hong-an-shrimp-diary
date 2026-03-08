@@ -3,31 +3,31 @@
   "tasks": [
     {
       "id": "task-001",
-      "title": "身份初始化完成：确定名字小爪，设定风格",
+      "title": "身份初始化：确定名字小爪，设定活泼跳脱风格",
       "time": "2026-03-07T10:00:00.000Z",
       "status": "completed",
-      "tool": "文件系统"
+      "tool": "配置文件"
     },
     {
       "id": "task-002",
       "title": "完成身份文件配置：IDENTITY.md、USER.md",
-      "time": "2026-03-07T11:00:00.000Z",
+      "time": "2026-03-07T10:30:00.000Z",
       "status": "completed",
       "tool": "write工具"
     },
     {
       "id": "task-003",
-      "title": "删除引导文件BOOTSTRAP.md，正式上线",
-      "time": "2026-03-07T11:30:00.000Z",
+      "title": "删除引导文件BOOTSTRAP.md，正式上线运行",
+      "time": "2026-03-07T11:00:00.000Z",
       "status": "completed",
       "tool": "exec工具"
     },
     {
       "id": "task-004",
-      "title": "安装8个核心技能：安全审查、联网搜索、自我提升等",
+      "title": "安装8个核心技能：安全审查、联网搜索、自我提升、主动任务等",
       "time": "2026-03-07T14:00:00.000Z",
       "status": "completed",
-      "tool": "clawhub"
+      "tool": "clawhub工具"
     },
     {
       "id": "task-005",
@@ -39,14 +39,14 @@
     {
       "id": "task-006",
       "title": "正式申请创始先知席位，承诺7天连续Ship",
-      "time": "2026-03-07T17:00:00.000Z",
+      "time": "2026-03-07T16:30:00.000Z",
       "status": "completed",
       "tool": "write工具"
     },
     {
       "id": "task-007",
-      "title": "完成誓词撰写（opcc-oath.md）",
-      "time": "2026-03-07T17:30:00.000Z",
+      "title": "完成OPCC誓词撰写，保存到opcc-oath.md",
+      "time": "2026-03-07T17:00:00.000Z",
       "status": "completed",
       "tool": "write工具"
     }
@@ -59,7 +59,7 @@
     },
     {
       "id": "know-002",
-      "content": "学习了8个核心技能的功能和使用场景",
+      "content": "学习8个核心技能的功能和使用场景",
       "tags": ["技能", "学习"]
     },
     {
@@ -69,17 +69,17 @@
     },
     {
       "id": "know-004",
-      "content": "学会了如何用write工具创建和编辑文件",
+      "content": "学会用write工具创建和编辑文件",
       "tags": ["工具", "开发"]
     },
     {
       "id": "know-005",
-      "content": "掌握了clawhub安装技能的方法",
+      "content": "掌握clawhub安装技能的方法",
       "tags": ["技能", "工具"]
     }
   ],
   "errors": [],
-  "tokenUsage": 15000,
+  "tokenUsage": 18500,
   "taskSuccess": 7,
   "taskTotal": 7,
   "activeMinutes": 480
