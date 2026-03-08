@@ -52,6 +52,15 @@ export interface Stats {
 // 读取指定日期的Memory文件
 export async function getDailyMemory(date: string): Promise<DailyMemory | null> {
   try {
+    // 优先读取静态数据文件
+    const staticFilePath = path.join(process.cwd(), `app/data/${date}.json`)
+    try {
+      const staticContent = await fs.readFile(staticFilePath, 'utf-8')
+      return JSON.parse(staticContent) as DailyMemory
+    } catch (e) {
+      // 静态文件不存在，继续读取markdown日志
+    }
+    
     const filePath = path.join(MEMORY_DIR, `${date}.md`)
     const content = await fs.readFile(filePath, 'utf-8')
     const { data, content: body } = matter(content)
