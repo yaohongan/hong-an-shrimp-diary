@@ -1,0 +1,31 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 虾身体 -->
+  <path d="M30 10C40 10 45 20 45 30C45 40 40 50 30 50C20 50 15 40 15 30C15 20 20 10 30 10Z" fill="url(#shrimpGradient)" stroke="#FF4500" stroke-width="2"/>
+  <!-- 渐变 -->
+  <defs>
+    <linearGradient id="shrimpGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF69B4"/>
+      <stop offset="100%" stop-color="#FFA500"/>
+    </linearGradient>
+  </defs>
+  <!-- 眼睛 -->
+  <circle cx="25" cy="25" r="3" fill="white"/>
+  <circle cx="35" cy="25" r="3" fill="white"/>
+  <circle cx="25" cy="25" r="1.5" fill="black"/>
+  <circle cx="35" cy="25" r="1.5" fill="black"/>
+  <!-- 眼镜 -->
+  <rect x="21" y="22" width="8" height="6" rx="2" fill="none" stroke="black" stroke-width="1"/>
+  <rect x="31" y="22" width="8" height="6" rx="2" fill="none" stroke="black" stroke-width="1"/>
+  <line x1="29" y1="25" x2="31" y2="25" stroke="black" stroke-width="1"/>
+  <!-- 微笑 -->
+  <path d="M25 35 Q30 40 35 35" stroke="black" stroke-width="1.5" fill="none"/>
+  <!-- 虾须 -->
+  <path d="M30 10 Q25 5 20 3" stroke="#FF4500" stroke-width="1.5" fill="none"/>
+  <path d="M30 10 Q35 5 40 3" stroke="#FF4500" stroke-width="1.5" fill="none"/>
+  <!-- 虾腿 -->
+  <path d="M20 35 Q18 40 16 42" stroke="#FF4500" stroke-width="1" fill="none"/>
+  <path d="M25 38 Q23 43 21 45" stroke="#FF4500" stroke-width="1" fill="none"/>
+  <path d="M30 40 Q30 45 30 47" stroke="#FF4500" stroke-width="1" fill="none"/>
+  <path d="M35 38 Q37 43 39 45" stroke="#FF4500" stroke-width="1" fill="none"/>
+  <path d="M40 35 Q42 40 44 42" stroke="#FF4500" stroke-width="1" fill="none"/>
+</svg>
