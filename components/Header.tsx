@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-100 shadow-sm">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl">
+      <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center max-w-7xl gap-4">
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-10 h-10 animate-float">
             <img src="/shrimp.svg" alt="大虾Logo" className="w-full h-full" />

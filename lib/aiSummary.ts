@@ -1,52 +1,32 @@
 
-import OpenAI from 'openai'
-
-let openai: OpenAI | null = null
-if (process.env.OPENAI_API_KEY) {
-  openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-  })
-}
-
-// 生成每日AI反思总结
+// 生成每日AI反思总结（纯本地生成，不需要API）
 export async function generateReflection(dailyMemory: any): Promise<string> {
-  // 如果没有OpenAI API Key，返回默认总结
-  if (!openai || !process.env.OPENAI_API_KEY) {
-    const taskCount = dailyMemory.tasks?.length || 0
-    const knowledgeCount = dailyMemory.knowledge?.length || 0
-    const errorCount = dailyMemory.errors?.length || 0
-    
+  const taskCount = dailyMemory.tasks?.length || 0
+  const knowledgeCount = dailyMemory.knowledge?.length || 0
+  const errorCount = dailyMemory.errors?.length || 0
+  const successRate = dailyMemory.taskTotal ? 
+    Math.round((dailyMemory.taskSuccess / dailyMemory.taskTotal) * 100) : 0
+
+  // 根据数据生成不同的总结
+  if (taskCount >= 10) {
     return `
-今天你完成了 ${taskCount} 个任务，学到了 ${knowledgeCount} 个新知识，修复了 ${errorCount} 个错误，表现非常棒哦！每一点付出都是在为成为超级大虾积累能量，继续加油，明天会更好！🦞💪
+哇塞！今天你居然完成了 ${taskCount} 个任务，学到了 ${knowledgeCount} 个新知识，还修复了 ${errorCount} 个错误，简直是超级大虾附体！成功率高达 ${successRate}%，这效率简直爆表！每一份努力都不会白费，今天的你超棒的，明天继续加油哦！🦞💪
     `.trim()
-  }
-
-  try {
-    const prompt = `
-你是一个可爱的AI助手，现在要给用户写一段150字左右的每日成长反思总结，风格要温暖励志，像养虾日记一样可爱。
-
-今日数据：
-- 完成任务数：${dailyMemory.tasks?.length || 0}
-- 学到新知识：${dailyMemory.knowledge?.length || 0}个
-- 修复错误数：${dailyMemory.errors?.length || 0}个
-- Token使用量：${dailyMemory.tokenUsage || 0}
-
-总结要包含鼓励的话语，用可爱的语气，最后可以加一个小龙虾相关的emoji。
+  } else if (taskCount >= 5) {
+    return `
+太棒了！今天完成了 ${taskCount} 个任务，学到了 ${knowledgeCount} 个新知识，修复了 ${errorCount} 个错误，成功率 ${successRate}%，又是收获满满的一天！继续保持这个节奏，离成为超级大虾的目标越来越近啦！✨
     `.trim()
-
-    const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      messages: [
-        { role: 'system', content: '你是一个温暖可爱的AI助手，擅长写鼓励的成长总结。' },
-        { role: 'user', content: prompt }
-      ],
-      max_tokens: 200,
-      temperature: 0.7
-    })
-
-    return response.choices[0].message.content?.trim() || '今天也要加油哦！🦞'
-  } catch (error) {
-    console.error('AI总结生成失败:', error)
-    return '今天你又进步了一点，继续加油，成为超级大虾指日可待！🦞'
+  } else if (taskCount > 0) {
+    return `
+今天完成了 ${taskCount} 个任务，学到了 ${knowledgeCount} 个新知识，修复了 ${errorCount} 个错误，表现不错哦！每天进步一点点，日积月累就是大突破，明天继续加油呀！🌟
+    `.trim()
+  } else if (knowledgeCount > 0) {
+    return `
+今天学到了 ${knowledgeCount} 个新知识，太棒啦！学习就是最好的投资，今天的你又比昨天更厉害了一点，继续保持，你会越来越棒的！📚
+    `.trim()
+  } else {
+    return `
+今天也要努力成长为超级大虾哦！即使没有太多任务，也可以整理整理之前的知识，复盘一下过去的经验，每一步都算数，加油！💖
+    `.trim()
   }
 }
